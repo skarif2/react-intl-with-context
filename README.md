@@ -1,0 +1,3 @@
+# [React Intl](https://github.com/formatjs/react-intl) usage
+
+Working with React Intl with new [React Context](https://reactjs.org/docs/context.html) API...
