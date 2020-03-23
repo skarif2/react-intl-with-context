@@ -1,22 +1,7 @@
 import React, { useReducer, useEffect } from 'react';
-import { IntlProvider } from 'react-intl';
 import LanguageContext from './language.context';
-
-const initialState = {
-  lang: 'bn',
-};
-
-function languageReducer(state, action) {
-  switch (action.type) {
-    case 'CURRENT_LANGUAGE':
-      return {
-        ...state,
-        lang: action.payload,
-      };
-    default:
-      return state;
-  }
-}
+import languageReducer, { initialState } from './language.reducer';
+import { IntlProvider } from 'react-intl';
 
 const LanguageProvider = ({ children, messages }) => {
   const [state, dispatch] = useReducer(languageReducer, initialState);
@@ -35,7 +20,7 @@ const LanguageProvider = ({ children, messages }) => {
 
   return (
     <LanguageContext.Provider value={{ state, toggleLanguage, dispatch }}>
-      <IntlProvider locale={state.lang} messages={messages[initialState.lang]}>
+      <IntlProvider locale={state.lang} messages={messages[state.lang]}>
         {children}
       </IntlProvider>
     </LanguageContext.Provider>

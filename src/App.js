@@ -1,8 +1,9 @@
 import './App.css';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 
 import LanguageProvider from './language/language.provider';
+import Select from "./components/Select";
+import Product from "./components/Product";
 
 import localBd from './translations/bn.json';
 import localEn from './translations/en.json';
@@ -14,32 +15,23 @@ const messages = {
   "de": localDe
 }
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <LanguageProvider messages={messages}>
-          <h1>
-            <FormattedMessage
-              id='title'
-              defaultMessage='My Title'
-            />
-          </h1>
-          <h4>
-            <FormattedMessage
-              id='description'
-              defaultMessage='My Description'
-            />
-          </h4>
-          <p>
-            <FormattedMessage
-              id='simple'
-              defaultMessage='My Paragraph'
-            />
-          </p>
-        </LanguageProvider>
-      </header>
-    </div>
+    <LanguageProvider messages={messages}>
+      <>
+        <nav className="navbar">
+          <div className="container">
+            <h1 className="logo">React Intl</h1>
+            <ul className="nav">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><Select /></li>
+            </ul>
+          </div>
+        </nav>
+        <Product />
+      </>
+    </LanguageProvider>
   );
 }
 
