@@ -1,5 +1,4 @@
-# Localizatin in react
-#  usage
+# Localization Test in React
 
 React localization using [React Intl](https://github.com/formatjs/react-intl) and new [React Context](https://reactjs.org/docs/context.html) API...
 
